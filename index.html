@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحميل الملف</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      direction: rtl; /* Arabic text right-to-left */
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #007BFF;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007BFF;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .required-star {
+      color: red;
+      margin-left: 2px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>تحميل الملف</h2>
+    <form action="https://formspree.io/f/xpwyraaw" method="POST" onsubmit="return redirectToPDF()">
+      <label>الاسم الأول <span class="required-star">*</span></label>
+      <input type="text" name="full_name" required>
+
+      <label>البريد الإلكتروني <span class="required-star">*</span></label>
+      <input type="email" name="email" required>
+
+      <label>رقم الهاتف <span class="required-star">*</span></label>
+      <input type="text" name="contact_number" required>
+
+      <button type="submit">إرسال وتحميل الملف</button>
+    </form>
+  </div>
+
+  <script>
+    function redirectToPDF() {
+      // رابط تحميل ملف PDF على Google Drive
+      const pdfURL = "https://drive.google.com/uc?export=download&id=1QB2UL0sOUAa4rCzpPwn4BJVnqP0wW3vJ";
+      
+      // تأخير بسيط للتأكد من إرسال الفورم قبل التحويل
+      setTimeout(function() {
+        window.location.href = pdfURL;
+      }, 500);
+      return true;
+    }
+  </script>
+</body>
+</html>
