@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تحميل التقرير العقاري</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -29,10 +30,18 @@
       padding: 15px 30px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
     }
     header img {
       height: 50px;
+    }
+    header h1 {
+      font-size: 18px;
+      color: #25285f;
+      background: #e9e9f6;
+      padding: 8px 12px;
+      border-radius: 8px;
     }
 
     /* Form Container */
@@ -42,18 +51,8 @@
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       width: 100%;
-      max-width: 450px;
+      max-width: 500px;
       margin: 20px 0;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #fff;
-      background: #25285f;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 18px;
     }
 
     label {
@@ -83,7 +82,6 @@
       display: flex;
       gap: 8px;
     }
-
     .phone-group select {
       flex: 1;
     }
@@ -103,7 +101,6 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     button:hover {
       background: #1b1e4d;
     }
@@ -119,27 +116,28 @@
       background: #25285f;
       color: #fff;
       text-align: center;
-      padding: 20px 10px;
+      padding: 30px 15px;
       margin-top: 20px;
     }
-
     .social-links {
-      margin: 10px 0;
+      margin: 15px 0;
     }
     .social-links a {
       margin: 0 10px;
       color: #fff;
-      text-decoration: none;
-      font-size: 18px;
+      font-size: 22px;
       transition: color 0.3s;
     }
     .social-links a:hover {
       color: #007BFF;
     }
-
     footer p {
-      margin: 5px 0;
+      margin: 6px 0;
       font-size: 14px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -147,22 +145,24 @@
   <!-- Header -->
   <header>
     <img src="multimedia blue.png" alt="Logo">
+    <h1>اكمل المعلومات التالية لتحميل التقرير العقاري</h1>
   </header>
 
   <!-- Form -->
   <div class="form-container">
-    <h2>اكمل المعلومات التالية لتحميل التقرير العقاري</h2>
-    <form action="https://formspree.io/f/xpwyraaw" method="POST" onsubmit="return redirectToPDF()">
+    <form action="https://formspree.io/f/xpwyraaw" method="POST" onsubmit="return validateForm()">
       
       <label>الاسم الكامل <span class="required-star">*</span></label>
       <input type="text" name="full_name" required>
 
       <label>البريد الإلكتروني <span class="required-star">*</span></label>
-      <input type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+      <input type="email" name="email" required 
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+        placeholder="example@email.com">
 
       <label>رقم الهاتف <span class="required-star">*</span></label>
-<div class="phone-group">
-  <select name="country_code" required>
+      <div class="phone-group">
+         <select name="country_code" required>
     <option value="+93">Afghanistan (+93)</option>
     <option value="+355">Albania (+355)</option>
     <option value="+213">Algeria (+213)</option>
@@ -304,10 +304,11 @@
     <option value="+967">Yemen (+967)</option>
     <option value="+260">Zambia (+260)</option>
     <option value="+263">Zimbabwe (+263)</option>
-  </select>
-  <input type="tel" name="contact_number" required pattern="[0-9]{6,12}" placeholder="رقم الهاتف">
-</div>
-
+        </select>
+        <input type="tel" name="contact_number" required 
+          pattern="^[0-9]{7,12}$" 
+          placeholder="123456789">
+      </div>
 
       <button type="submit">إرسال وتحميل الملف</button>
     </form>
@@ -316,25 +317,42 @@
   <!-- Footer -->
   <footer>
     <div class="social-links">
-      <a href="#" target="_blank">LinkedIn</a>
-      <a href="#" target="_blank">Facebook</a>
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">TikTok</a>
+      <a href="https://www.facebook.com/multimediaclubco" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/multimediaclubco/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/company/multimediaclubco/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://x.com/multimediaclub_" target="_blank"><i class="fab fa-x-twitter"></i></a>
     </div>
-    <p>📞 +966-555-555-555</p>
-    <p>🌐 <a href="#" target="_blank" style="color:white; text-decoration:underline;">www.yourwebsite.com</a></p>
-    <p>📍 Riyadh, Saudi Arabia</p>
+    <p><i class="fas fa-phone"></i> +(966)0501634366</p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:info@multimediaclub.co">info@multimediaclub.co</a></p>
+    <p><i class="fas fa-globe"></i> <a href="https://multimediaclub.co" target="_blank">multimediaclub.co</a></p>
+    <p><i class="fas fa-map-marker-alt"></i> Building 5 – back door floor 1, Musa Ibn Nusair St, Al Olaya, Riyadh 12211</p>
   </footer>
 
   <script>
-    function redirectToPDF() {
+    function validateForm() {
+      const email = document.querySelector("input[name='email']");
+      const phone = document.querySelector("input[name='contact_number']");
+      
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email.value)) {
+        alert("⚠️ الرجاء إدخال بريد إلكتروني صحيح");
+        return false;
+      }
+
+      const phonePattern = /^[0-9]{7,12}$/;
+      if (!phonePattern.test(phone.value)) {
+        alert("⚠️ الرجاء إدخال رقم هاتف صحيح (7–12 أرقام)");
+        return false;
+      }
+
+      // Redirect to PDF after short delay
       const pdfURL = "https://drive.google.com/uc?export=download&id=1QB2UL0sOUAa4rCzpPwn4BJVnqP0wW3vJ";
       setTimeout(function() {
         window.location.href = pdfURL;
       }, 500);
+
       return true;
     }
   </script>
 </body>
 </html>
-
